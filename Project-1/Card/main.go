@@ -3,16 +3,14 @@ package main
 import "fmt"
 
 
-
 func main(){
-	cards := []string{"Ace of Hearts",newCard()}
+	cards := NewDeck()
 
-	for i,card := range cards{
-		fmt.Println(i,card)
-	}
-	
-}
+	fmt.Println("This is the Shuffled Card: ")
+	cards.shuffle()
+	cards.print()
 
-func newCard() string{
-	return "Five of Diamonds"
+	fmt.Println("\nHand of 7:")
+	hand1, _ := deal(cards, 7)
+	hand1.print()
 }
