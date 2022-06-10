@@ -2,15 +2,23 @@ package main
 
 import "fmt"
 
+func main() {
+	fileAddress := "cards.txt"
 
-func main(){
 	cards := NewDeck()
-
-	fmt.Println("This is the Shuffled Card: ")
-	cards.shuffle()
 	cards.print()
 
-	fmt.Println("\nHand of 7:")
-	hand1, _ := deal(cards, 7)
-	hand1.print()
+	cards.writeToFile(fileAddress)
+
+	cards, _ = newDeckFromFile(fileAddress)
+
+	cards.shuffle()
+
+	hand, remain := deal(cards, 7)
+
+	fmt.Println("\nThis is hand:")
+	hand.print()
+	fmt.Println("\nThis is remain:")
+	remain.print()
+
 }
