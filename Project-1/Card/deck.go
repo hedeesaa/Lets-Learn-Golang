@@ -12,7 +12,7 @@ import (
 type deck []string
 
 // NewDeck Generate deck of cards
-func NewDeck() deck {
+func newDeck() deck {
 	cards := deck{}
 	cardValue := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"}
 	cardSuit := []string{"Spades", "Hearts", "Clubs", "Diamonds"}
@@ -48,8 +48,8 @@ func (d deck) shuffle() {
 	}
 }
 
-// writeToFile Write the deck to a file
-func (d deck) writeToFile(address string) error {
+// saveDeckToFile Write the deck to a file
+func (d deck) saveDeckToFile(address string) error {
 	error := ioutil.WriteFile(address, []byte(d.toString()), 0666)
 	return error
 }

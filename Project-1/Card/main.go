@@ -5,10 +5,10 @@ import "fmt"
 func main() {
 	fileAddress := "cards.txt"
 
-	cards := NewDeck()
+	cards := newDeck()
 	cards.print()
 
-	cards.writeToFile(fileAddress)
+	cards.saveDeckToFile(fileAddress)
 
 	cards, _ = newDeckFromFile(fileAddress)
 
